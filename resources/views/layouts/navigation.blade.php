@@ -16,6 +16,16 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('cotizacion')" :active="request()->routeIs('cotizacion')">
+                        {{ __('Cotizaciones') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('factura')" :active="request()->routeIs('factura')">
+                        {{ __('Facturas') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

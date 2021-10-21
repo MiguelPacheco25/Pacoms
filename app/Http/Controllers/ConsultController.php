@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Models\Client;
+use App\Models\Ticket;
+use App\Models\ItemTicket;
+use Auth;
 
 class ConsultController extends Controller
 {
@@ -14,11 +18,11 @@ class ConsultController extends Controller
      */
     public function index()
     {
-        /*$sunatRuc = new Tecactus\Sunat\RUC('eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOWQyMWFlNjVmNmI3ZTFlODMxZDRjMWY0YzFiMWRjOGE0NDU2NTY5ZGYzMmI1OWY3MTRkYTFmMGY5MjM4ZjNkNTNhMDM5NTE3M2RjYzRhZTYiLCJpYXQiOjE2MzQ1MzMyMjQuNjA3MTkyLCJuYmYiOjE2MzQ1MzMyMjQuNjA3MTk2LCJleHAiOjE2NjYwNjkyMjQuNTg1NjA5LCJzdWIiOiI4MTYwIiwic2NvcGVzIjpbInVzZS1yZW5pZWMiXX0.HxF_1FyzWGdxwF9MnZwgCpH_uC2Ot7A9BFvMxfF_0j990RLnPU2Ch2Koy-vrgxSBIu7yg_9WD14U75zj3l7f77yeGTiFcW1Ic441KTcnR7wrN7LOGuzl2tsTsxKW-a0zg4Z9OFGD_Q_yyPY0JH79NE5683vYDGUnT-GtsdJJWL18kJklYJZ3CIHYFKIITT2JYpl5WW30aHrc0uuiO9rUeS3WisO7W4C5yxXu8PHczCJlRh_jmvwdY-wZV9nfjakGbL2z89tWuj8pw1hXZ4_fc2GRiHjWDss72TcJpNv-uD9mMdUyHUH9R-UIQ4Sw-Vi6q7JsceANlh--T7E7BE7Px_Dhc7P7AvF0-ViKAFjfob1PtAISh-9W0F_vZqffAKlGe1V03lbdDgRX7lE-94xiajYWrSZTKEacGKgU8PzQw075QccITYhemtmjsCP8ygmYI3jSql0nHXU9QHs7rnEef6FtSKirxvChElLbg_5sCb3oEVxkDM3Nez6bPVhILMcXk4bxsODQJSSOzIxYeDFqW9s1KrbQkL5BvAaGp1ZAhEKHRsokYJJnMqH1W0mWCSkJH_c9ouGtk7ytgjQgIEShZBkSqzkNtv0hOPD3r1W3gzf_wugidN7HQGIpET6pDRnKsLAEjx8F0gQPZ2MAErOgfSUNmC6Aw7mTudUmOFIf9BE');
+       $clients = Client::all();
+       $tickets = Ticket::all();
+       $itemsTickets = ItemTicket::all();
 
-        dd($sunatRuc->getByRuc('12345678901'));*/
-        
-
+       return view('dashboard', compact(['clients', 'tickets', 'itemsTickets']));
     }
 
     /**
@@ -39,7 +43,44 @@ class ConsultController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $usuario = Auth::user()->name;
+
+        $clientStored = Client::where('NumberRuc', $request->NumberRuc)->first();
+
+        $client = Client::updateOrCreate(
+            ['NumberRuc' =>  $request->NumberRuc], [
+            'NumberRuc' =>  $request->NumberRuc,
+            'SocialRasonRuc' => $request->SocialRasonRuc,
+            'NamesClient' => $request->NamesClient != null ? $request->NamesClient : isset($clientStored->NamesClient),
+        ]);
+
+        $ticket = Ticket::create([
+            'TicketTypeTicket' =>  $request->TicketTypeTicket,
+            'MoneyTypeTicket' =>  $request->MoneyTypeTicket,
+            'PayTypeTicket' =>  $request->PayTypeTicket,
+            'ServiceTypeTicket' =>  $request->ServiceTypeTicket,
+            'SubTotalTicket' =>  $request->SubTotalTicket,
+            'IGVTicket' =>  $request->IGVTicket,
+            'TotalTicket' =>  $request->TotalTicket,
+            'client_id' =>  $client->id
+        ]);
+
+        for ($i = 1; $i <= $request->itemAmountTicket; $i++) { 
+            $amountItem = "AmountItem".$i;
+            $descriptionItem = "DescriptionItem".$i;
+            $priceItem = "PriceItem".$i;
+
+            $itemTicket = ItemTicket::create([
+                'AmountItem' => $request->$amountItem,
+                'DescriptionItem' => $request->$descriptionItem,
+                'PriceItem' => $request->$priceItem,
+                'ticket_id' => $ticket->id
+            ]);
+        }
+
+        
+        return response()->json(['rpt' => "Comprobante registrado correctamente."]);
+        //return view('consult');
     }
 
     /**

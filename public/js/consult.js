@@ -18,14 +18,14 @@ function consultRuc(){
 
 function addItem(){
 	item += 1;
-	console.log(item);
+	
 	let addtr = `<tr>
                   <th scope="row">${item}</th>
-                  <td><input type="number" class="form-control" id="AmountItem${item}" autocomplete="off" required></td>
-                  <td><input type="text" class="form-control" id="DescriptionItem${item}" autocomplete="off" required></td>
+                  <td><input type="number" class="form-control" id="AmountItem${item}" name="AmountItem${item}" autocomplete="off" required></td>
+                  <td><input type="text" class="form-control" id="DescriptionItem${item}" name="DescriptionItem${item}" autocomplete="off" required></td>
                   <td><div class="input-group mb-3">
                       <span class="input-group-text">S/. </span>
-                      <input type="text" class="form-control" id="PriceItem${item}" required>
+                      <input type="text" class="form-control" id="PriceItem${item}" name="PriceItem${item}" required>
                     </div>
                     </td>
 	             </tr>`;
@@ -37,18 +37,40 @@ function calculateTotal(){
 	let subTotal = 0;
 	let igv;
 	let total;
+	
 	for (let i = 1; i <= item; i++) {
-		console.log($('#PriceItem'+i)[0].value);
 	   subTotal += parseInt($('#PriceItem'+i)[0].value);
 	}
 	
 	igv = subTotal*0.18;
 	total = (subTotal*1.18);
 
-	$('#SubTotalTicket')[0].value = "S/. " + subTotal.toFixed(2) + ".00";
-	$('#IGVTicket')[0].value = "S/. " + igv + ".00";
-	$('#TotalTicket')[0].value = "S/. " + total.toFixed(2) + ".00";
+	$('#SubTotalTicket')[0].value = "S/. " + subTotal.toFixed(2);
+	$('#IGVTicket')[0].value = "S/. " + igv.toFixed(2);
+	$('#TotalTicket')[0].value = "S/. " + total.toFixed(2);
+	$('#itemAmountTicket')[0].value = item;
 }
+
+
+$('#frm_registerConsult').on("submit", function(){
+  event.preventDefault();
+  calculateTotal();
+  let data_frm = $('#frm_registerConsult').serialize();
+  console.log(data_frm);
+  $.ajax({
+      type: "POST",
+      url: "/acciones/storeConsult",
+      data: data_frm,
+      success: function(e){
+        /*if (e.rpt == 'ok'){
+          alert("Ok.");
+        }
+        else 
+          alert("Error al modificar la Unidad.");*/
+        console.log(e.rpt);
+      }
+  });
+});
 
 
 
