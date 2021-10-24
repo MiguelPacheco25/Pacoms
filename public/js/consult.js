@@ -39,7 +39,7 @@ function calculateTotal(){
 	let total;
 	
 	for (let i = 1; i <= item; i++) {
-	   subTotal += parseInt($('#PriceItem'+i)[0].value);
+	   subTotal = subTotal + (parseInt($('#PriceItem'+i)[0].value) * parseInt($('#AmountItem'+i)[0].value));
 	}
 	
 	igv = subTotal*0.18;
@@ -71,6 +71,45 @@ $('#frm_registerConsult').on("submit", function(){
       }
   });
 });
+
+
+/*$('#frm_sendEmail').on("submit", function(){
+  event.preventDefault();
+  let data_frm = $('#frm_sendEmail').serialize();
+  console.log(data_frm);
+  $.ajax({
+      type: "POST",
+      url: "/sendEmail",
+      data: data_frm,
+      success: function(e){
+        /*if (e.rpt == 'ok'){
+          alert("Ok.");
+        }
+        else 
+          alert("Error al modificar la Unidad.");
+        console.log(e.rpt);
+      }
+  });
+});*/
+
+function sendEmail(ticket_id){
+  event.preventDefault();
+  let data_frm = $('#frm_sendEmail'+ticket_id).serialize();
+  console.log(data_frm);
+  $.ajax({
+      type: "POST",
+      url: "/sendEmail",
+      data: data_frm,
+      success: function(e){
+        /*if (e.rpt == 'ok'){
+          alert("Ok.");
+        }
+        else 
+          alert("Error al modificar la Unidad.");*/
+        console.log(e.rpt);
+      }
+  });
+};
 
 
 

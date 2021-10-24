@@ -67,8 +67,8 @@
                 <label for="" class="form-label">Moneda</label>
                 <select id="MoneyTypeTicket" name="MoneyTypeTicket" class="form-select">
                   <option selected>Soles</option>
-                  <option>Dólares</option>
-                  <option>Euros</option>
+                  <option disabled>Dólares</option>
+                  <option disabled>Euros</option>
                 </select>
             </div>
 
@@ -78,7 +78,7 @@
                   <option selected>Depósito</option>
                   <option>Efectivo</option>
                   <option>Transferencia</option>
-                  <option>Billetera Digital</option>
+                  <option disabled>Billetera Digital</option>
                 </select>
             </div>
 
@@ -135,7 +135,7 @@
               </div>
             </div>
             <div>
-              <input type="text" id="itemAmountTicket" name="itemAmountTicket">
+              <input type="hidden" id="itemAmountTicket" name="itemAmountTicket">
             </div>
 
             

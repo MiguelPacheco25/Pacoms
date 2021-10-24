@@ -21,16 +21,14 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [ConsultController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
-Route::get('/factura', function () {
-    return view('facturas');
-})->middleware(['auth'])->name('factura');
-
-Route::get('/cotizacion', function () {
-    return view('cotizaciones');
-})->middleware(['auth'])->name('cotizacion');
+Route::get('/registro', function () {
+    return view('register');
+})->middleware(['auth'])->name('registro');
 
 Route::post('/acciones/storeConsult', [ConsultController::class, 'store']);
+Route::get('/consult', [ConsultController::class, 'create']);
+Route::get('/delete/{id}', [ConsultController::class, 'destroy'])->name('delete');
 
-Route::get('/send', [MailController::class, 'send']);
+Route::post('/sendEmail', [MailController::class, 'send'])->middleware(['auth'])->name('sendEmail');
 
 require __DIR__.'/auth.php';

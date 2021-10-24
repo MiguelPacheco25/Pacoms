@@ -8,6 +8,7 @@ use App\Models\Client;
 use App\Models\Ticket;
 use App\Models\ItemTicket;
 use Auth;
+use Artisan;
 
 class ConsultController extends Controller
 {
@@ -18,11 +19,8 @@ class ConsultController extends Controller
      */
     public function index()
     {
-       $clients = Client::all();
-       $tickets = Ticket::all();
-       $itemsTickets = ItemTicket::all();
-
-       return view('dashboard', compact(['clients', 'tickets', 'itemsTickets']));
+       $tickets = Ticket::orderBy('created_at', 'DESC')->get();
+       return view('dashboard', compact(['tickets']));
     }
 
     /**
@@ -32,7 +30,10 @@ class ConsultController extends Controller
      */
     public function create()
     {
-        //
+    
+       $ticket = Ticket::first();
+
+       return view('consult', compact(['ticket']));
     }
 
     /**
@@ -130,6 +131,9 @@ class ConsultController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Ticket::find($id)->delete();
+        $tickets = Ticket::orderBy('created_at', 'DESC')->get();
+        //return view('dashboard', compact(['tickets']));
+        return redirect()->back()->with('tickets', $tickets);
     }
 }
