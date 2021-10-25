@@ -31,4 +31,9 @@ Route::get('/delete/{id}', [ConsultController::class, 'destroy'])->name('delete'
 
 Route::post('/sendEmail', [MailController::class, 'send'])->middleware(['auth'])->name('sendEmail');
 
+
+Route::get('/test', [ConsultController::class, 'downloadPdf'])->name('downloadPdf');
+
+
+
 require __DIR__.'/auth.php';

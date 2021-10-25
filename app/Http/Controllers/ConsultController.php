@@ -9,6 +9,7 @@ use App\Models\Ticket;
 use App\Models\ItemTicket;
 use Auth;
 use Artisan;
+use PDF;
 
 class ConsultController extends Controller
 {
@@ -30,9 +31,7 @@ class ConsultController extends Controller
      */
     public function create()
     {
-    
        $ticket = Ticket::first();
-
        return view('consult', compact(['ticket']));
     }
 
@@ -92,12 +91,7 @@ class ConsultController extends Controller
      */
     public function show($ruc)
     {
-
-        $url = file_get_contents('https://dniruc.apisperu.com/api/v1/ruc/'.$ruc.'?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im1hcmxvbi5zYW5jaGV6LmNoYXZlekBnbWFpbC5jb20ifQ.PYMu7nXFp8anSN7cw340zlUPCw0asP6pti7hST6lawQ');
-
-         
-        //print_r($url);
-        return view('consult');
+        //
     }
 
     /**
@@ -135,5 +129,15 @@ class ConsultController extends Controller
         $tickets = Ticket::orderBy('created_at', 'DESC')->get();
         //return view('dashboard', compact(['tickets']));
         return redirect()->back()->with('tickets', $tickets);
+    }
+
+    public function downloadPdf()
+    {
+        $ticket = Ticket::first();
+        $nombrePDF = 'ComprobanteN°00-'.$ticket->id.'.pdf';
+        //return view('consult', compact(['ticket']));
+        $pdf = PDF::loadView('consult', compact(['ticket']))->setPaper('a4', 'landscape');
+
+        return $pdf->download($nombrePDF);
     }
 }

@@ -9,7 +9,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-
+                    <div class="col-12 mt-2 mb-3 d-flex justify-content-end"> <b class="text-uppercase"> {{ $ticket->TicketTypeTicket }}:&nbsp; </b> N° 00 - {{ $ticket->id }}  </div>
+                    <hr>
                     <table class="table table-borderless">
                         <tbody>
                             <tr>
@@ -38,7 +39,7 @@
                         </tbody>
                     </table>
 
-                    <table class="table" style="table-layout:fixed">
+                    <table class="table my-5" style="table-layout:fixed">
                         <thead>
                             <tr>
                                 <th width="5%">#</th>
@@ -92,7 +93,7 @@
                                 <button class="btn btn-outline-primary mx-2" onclick="sendEmail({{ $ticket->id }})">Enviar</button>
                             </div>
                         <div class="col-auto">
-                            <a class="btn btn-outline-warning mx-2">PDF</a> 
+                            <a class="btn btn-outline-warning mx-2" href="{{ url('/test') }}">PDF</a> 
                         </div>
                         <div class="col-auto">
                             <a class="btn btn-outline-danger mx-2" href="{{ url('/delete/' . $ticket->id ) }}">Eliminar</a> 
