@@ -17,7 +17,11 @@ use App\Http\Controllers\MailController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+Route::get('about', function () {
+    return view('about');
+})->name('about');
 
 Route::get('/dashboard', [ConsultController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
