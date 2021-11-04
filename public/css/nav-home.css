@@ -1,0 +1,9 @@
+.nav-position{
+	position: fixed; 
+	z-index: 999999;
+	top: 0px;
+}
+
+.space-nav{
+	margin-top: 4.2em;
+}

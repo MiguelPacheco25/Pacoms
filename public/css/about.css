@@ -1,0 +1,11 @@
+.font-title{
+	font-weight: 1000 !important;
+	font-size: 2rem;
+    line-height: 1;
+    letter-spacing: .00187rem;
+    padding-bottom: 0.3125rem;
+}
+
+img{
+	max-width: 300px !important;
+}
