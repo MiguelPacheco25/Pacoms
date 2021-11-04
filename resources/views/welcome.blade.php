@@ -4,9 +4,18 @@
 <title>Factoría Pacoms</title>
 @endsection
 
+@section('links')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/welcome.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/footer.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/carrusel.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/carruselBanner.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/nav-home.css') }}">
+@endsection
+
 @section('body')
 @include('components.nav-home')
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -48,57 +57,45 @@
     </div>
 
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<div class="container py-5 px-4">
-  <div class="row gx-5">
-    <div class="col">
-      <div data-aos="fade-up-right" data-aos-duration="3000">
-        <h2 class="text-center">MISIÓN</h2>
-        <p>Brindar servicios de mecánica industrial con altos niveles de calidad, seguridad y rentabilidad, para satisfacción de nuestros clientes.</p>
-      </div>
-    </div>
-    <div class="col">
-     <div data-aos="fade-up-left" data-aos-duration="3000">
-       <h2 class="text-center">VISIÓN</h2>
-       <p>En el 2025 seremos la empresa líder en prestación de servicios de mecánica industrial, con reconocimiento a nivel nacional y con presencia en el extranjero, basado en exigentes criterios de calidad e innovación, garantizando a sus clientes un excelente servicio.</p>
-     </div>
-   </div>
- </div>
+  
 </div>
 
-<div class="container py-5">
-  <div class="row" data-aos="fade-up" data-aos-duration="3000">
-    <h2 class="text-center py-5">NUESTROS SERVICIOS</h2>
-    <div class="col-md-8">
-      <h3>MECANIZADO DE PIEZAS INDUSTRIALES</h3>
-      <p>Brindamos el servicio de mecanizado y fabricación de piezas especiales, para lo cual FACTORÍA PACOMS cuenta con una variedad de máquinas y equipos tales como:</p>
-      <ul>
-        <li data-aos="zoom-in" data-aos-duration="3000"><h4>Tornos</h4></li>
-        <li data-aos="zoom-in" data-aos-duration="3000"><h4>Fresadoras</h4></li>
-        <li data-aos="zoom-in" data-aos-duration="3000"><h4>Cepillos</h4></li>
-        <li data-aos="zoom-in" data-aos-duration="3000"><h4>Taladro radial</h4></li>
-        <li data-aos="zoom-in" data-aos-duration="3000"><h4>Barrenadora</h4></li>
-        <li data-aos="zoom-in" data-aos-duration="3000"><h4>Prensas hidráulicas</h4></li>
-        <li data-aos="zoom-in" data-aos-duration="3000"><h4>Puente grúa</h4></li>
-      </ul>
-      
+<div class="container">
+  <div class="row">
+    <h2 class="text-center py-5">Nuestros Servicios</h2>
+    <div class="col-md-6 text-center p-3" data-aos="fade-right" data-aos-duration="500" data-aos-offset="500">
+      <img src="{{ asset('/img/thumbnail1.jpg') }}" class="img-thumbnail img-service">
+      <h3><b>Tornos</b></h3>
     </div>
-    <div class="col-md-4">
-      <img src="{{ asset('/img/thumbnail1.jpg') }}" class="img-thumbnail" alt="...">
+    <div class="col-md-6 text-center p-3" data-aos="fade-left" data-aos-duration="500" data-aos-offset="500">
+      <img src="{{ asset('/img/thumbnail1.jpg') }}" class="img-thumbnail img-service">
+      <h3><b>Fresadoras</b></h3>
     </div>
-    
+    <div class="col-md-6 text-center p-3" data-aos="fade-right" data-aos-duration="500" data-aos-offset="500">
+      <img src="{{ asset('/img/thumbnail1.jpg') }}" class="img-thumbnail img-service">
+      <h3><b>Cepillos</b></h3>
+    </div>
+    <div class="col-md-6 text-center p-3" data-aos="fade-left" data-aos-duration="500" data-aos-offset="500">
+      <img src="{{ asset('/img/thumbnail1.jpg') }}" class="img-thumbnail img-service">
+      <h3><b>Taladro radial</b></h3>
+    </div>
+    <div class="col-md-6 text-center p-3" data-aos="fade-right" data-aos-duration="500" data-aos-offset="500">
+      <img src="{{ asset('/img/thumbnail1.jpg') }}" class="img-thumbnail img-service">
+      <h3><b>Barrenadora</b></h3>
+    </div>
+    <div class="col-md-6 text-center p-3" data-aos="fade-left" data-aos-duration="500" data-aos-offset="500">
+      <img src="{{ asset('/img/thumbnail1.jpg') }}" class="img-thumbnail img-service">
+      <h3><b>Prensas hidráulicas</b></h3>
+    </div>
+    <div class="col-md-12 text-center p-3" data-aos="fade-up" data-aos-duration="500" data-aos-offset="500">
+      <img src="{{ asset('/img/thumbnail1.jpg') }}" class="img-thumbnail img-service">
+      <h3><b>Puente grúa</b></h3>
+    </div>
+
   </div>
 </div>
 
-<h2 class="text-center py-3">NUESTROS CLIENTES</h2>
+<h2 class="text-center pt-5 py-3">NUESTROS CLIENTES</h2>
 <div class="container-carrusel">
   <div class="slider">
     <div class="slide-track">
@@ -150,10 +147,10 @@
 
 
 @include('components.footer')
+@endsection
+@section('scripts')
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
+<script> AOS.init(); </script>
 @endsection
 
 

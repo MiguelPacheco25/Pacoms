@@ -3,30 +3,27 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6">
-            <h6>NOSOTROS</h6>
-            <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+            <h6><b>NOSOTROS</b></h6>
+            <p class="text-justify text-white">FACTORÍA PACOMS, es una empresa especializada, eficiente y experimentada en mantenimiento, reparación y fabricación de maquinarias industriales, que brinda un excelente servicio en la rama de metalmecánica y mecanizado.</p>
           </div>
 
-          <div class="col-xs-6 col-md-3">
-            <h6>Servicios</h6>
+          <div class="col-xs-6 col-md-2">
+            <h6><b>Servicios</b></h6>
             <ul class="footer-links">
-              <li>Torno</li>
-              <li>Fresadora</li>
-              <li>Soldadura</li>
-              <li>Prensas hidráulicas</li>
-              <li>Taladros</li>
-              <li>Cepillos</li>
+              <li><i class="fas fa-wrench"></i> Torno</li>
+              <li><i class="fas fa-wrench"></i> Fresadora</li>
+              <li><i class="fas fa-wrench"></i> Soldadura</li>
+              <li><i class="fas fa-wrench"></i> Prensas hidráulicas</li>
+              <li><i class="fas fa-wrench"></i> Taladros</li>
+              <li><i class="fas fa-wrench"></i> Cepillos</li>
             </ul>
           </div>
 
-          <div class="col-xs-6 col-md-3">
-            <h6>Quick Links</h6>
+          <div class="col-xs-6 col-md-4">
+            <h6><b>Contáctanos</b></h6>
             <ul class="footer-links">
-              <li><a href="http://scanfcode.com/about/">About Us</a></li>
-              <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-              <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-              <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-              <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+              <li><i class="fas fa-map-marker-alt"></i> Prolongación César Vallejo 2151 La Rinconada</li>
+              <li><i class="fas fa-phone-volume"></i> +51 930 614 755</li>
             </ul>
           </div>
         </div>
@@ -35,8 +32,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Copyright &copy; @php echo date("Y") @endphp All Rights Reserved by 
-         <a href="https://github.com/MiguelPacheco25">Miguel Pacheco</a>.
+            <p class="copyright-text">Copyright &copy; @php echo date("Y") @endphp Designed and developed by 
+         <a href="https://github.com/MiguelPacheco25">MP92</a>.
             </p>
           </div>
 
