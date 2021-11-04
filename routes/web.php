@@ -23,6 +23,10 @@ Route::get('about', function () {
     return view('about');
 })->name('about');
 
+Route::get('quote', function () {
+    return view('quote');
+})->name('quote');
+
 Route::get('/dashboard', [ConsultController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 Route::get('/registro', function () {

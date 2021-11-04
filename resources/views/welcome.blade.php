@@ -64,31 +64,31 @@
   <div class="row">
     <h2 class="text-center py-5">Nuestros Servicios</h2>
     <div class="col-md-6 text-center p-3" data-aos="fade-right" data-aos-duration="500" data-aos-offset="500">
-      <img src="{{ asset('/img/thumbnail1.jpg') }}" class="img-thumbnail img-service">
+      <img src="{{ asset('/img/thumbnail_torno.jpg') }}" class="img-thumbnail img-service">
       <h3><b>Tornos</b></h3>
     </div>
     <div class="col-md-6 text-center p-3" data-aos="fade-left" data-aos-duration="500" data-aos-offset="500">
-      <img src="{{ asset('/img/thumbnail1.jpg') }}" class="img-thumbnail img-service">
+      <img src="{{ asset('/img/thumbnail_fresadora.jpg') }}" class="img-thumbnail img-service">
       <h3><b>Fresadoras</b></h3>
     </div>
     <div class="col-md-6 text-center p-3" data-aos="fade-right" data-aos-duration="500" data-aos-offset="500">
-      <img src="{{ asset('/img/thumbnail1.jpg') }}" class="img-thumbnail img-service">
+      <img src="{{ asset('/img/thumbnail_cepillo.jpg') }}" class="img-thumbnail img-service">
       <h3><b>Cepillos</b></h3>
     </div>
     <div class="col-md-6 text-center p-3" data-aos="fade-left" data-aos-duration="500" data-aos-offset="500">
-      <img src="{{ asset('/img/thumbnail1.jpg') }}" class="img-thumbnail img-service">
+      <img src="{{ asset('/img/thumbnail_taladro.jpg') }}" class="img-thumbnail img-service">
       <h3><b>Taladro radial</b></h3>
     </div>
     <div class="col-md-6 text-center p-3" data-aos="fade-right" data-aos-duration="500" data-aos-offset="500">
-      <img src="{{ asset('/img/thumbnail1.jpg') }}" class="img-thumbnail img-service">
+      <img src="{{ asset('/img/thumbnail_barrenadora.jpg') }}" class="img-thumbnail img-service">
       <h3><b>Barrenadora</b></h3>
     </div>
     <div class="col-md-6 text-center p-3" data-aos="fade-left" data-aos-duration="500" data-aos-offset="500">
-      <img src="{{ asset('/img/thumbnail1.jpg') }}" class="img-thumbnail img-service">
+      <img src="{{ asset('/img/thumbnail_prensa.jpg') }}" class="img-thumbnail img-service">
       <h3><b>Prensas hidráulicas</b></h3>
     </div>
     <div class="col-md-12 text-center p-3" data-aos="fade-up" data-aos-duration="500" data-aos-offset="500">
-      <img src="{{ asset('/img/thumbnail1.jpg') }}" class="img-thumbnail img-service">
+      <img src="{{ asset('/img/thumbnail_puente.jpg') }}" class="img-thumbnail img-service">
       <h3><b>Puente grúa</b></h3>
     </div>
 

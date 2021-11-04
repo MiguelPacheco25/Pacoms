@@ -25,7 +25,7 @@
 
 	<div class="row">
 		<div class="col-md-6 text-center pt-5" data-aos="fade-up-right" data-aos-duration="3000">
-			<img src="{{ asset('/img/thumbnail1.jpg') }}" class="img-thumbnail">
+			<img src="{{ asset('/img/thumbnail_mision.jpg') }}" class="img-thumbnail">
 		</div>
 		<div class="col-md-6 d-grid align-content-center pt-5" data-aos="fade-up-left" data-aos-duration="3000">
 			<h2 class="text-center font-title">Misión</h2>
@@ -39,34 +39,34 @@
 			<p class="text-justify">Para el 2025 lograremos ser una empresa competitiva a nivel nacional y posicionarse como una de las mejores en el rubro metalmecánico industrial, cumpliendo los estándares y normas de seguridad, calidad y medio ambiente.</p>
 		</div>
 		<div class="col-md-6 text-center pt-5" data-aos="fade-up-left" data-aos-duration="3000">
-			<img src="{{ asset('/img/thumbnail1.jpg') }}" class="img-thumbnail">
+			<img src="{{ asset('/img/thumbnail_vision.jpg') }}" class="img-thumbnail">
 		</div>
 	</div>
 
 	<div class="row py-5">
 		<h2 class="text-center font-title pb-5">Nuestros Valores</h2>
 		<div class="col-md-2 col-6 text-center" data-aos="zoom-in-down">
-			<img src="{{ asset('/img/thumbnail1.jpg') }}" alt="..." class="rounded-circle" width="100px" height="100px">
+			<img src="{{ asset('/img/thumbnail_innovacion.jpg') }}" alt="..." class="rounded-circle" width="100px" height="100px">
 			<p class="py-3">Innovación</p>
 		</div>
 		<div class="col-md-2 col-6 text-center" data-aos="zoom-in-down" data-aos-delay="50">
-			<img src="{{ asset('/img/thumbnail1.jpg') }}" alt="..." class="rounded-circle" width="100px" height="100px">
+			<img src="{{ asset('/img/thumbnail_calidad.jpg') }}" alt="..." class="rounded-circle" width="100px" height="100px">
 			<p class="py-3">Calidad</p>
 		</div>
 		<div class="col-md-2 col-6 text-center" data-aos="zoom-in-down" data-aos-delay="100" >
-			<img src="{{ asset('/img/thumbnail1.jpg') }}" alt="..." class="rounded-circle" width="100px" height="100px">
+			<img src="{{ asset('/img/thumbnail_responsabilidad.jpg') }}" alt="..." class="rounded-circle" width="100px" height="100px">
 			<p class="py-3">Responsabilidad</p>
 		</div>
 		<div class="col-md-2 col-6 text-center" data-aos="zoom-in-down" data-aos-delay="150">
-			<img src="{{ asset('/img/thumbnail1.jpg') }}" alt="..." class="rounded-circle" width="100px" height="100px">
+			<img src="{{ asset('/img/thumbnail_integridad.jpg') }}" alt="..." class="rounded-circle" width="100px" height="100px">
 			<p class="py-3">Integridad</p>
 		</div>
 		<div class="col-md-2 col-6 text-center" data-aos="zoom-in-down" data-aos-delay="200">
-			<img src="{{ asset('/img/thumbnail1.jpg') }}" alt="..." class="rounded-circle" width="100px" height="100px">
+			<img src="{{ asset('/img/thumbnail_compromiso.jpg') }}" alt="..." class="rounded-circle" width="100px" height="100px">
 			<p class="py-3">Compromiso</p>
 		</div>
 		<div class="col-md-2 col-6 text-center" data-aos="zoom-in-down" data-aos-delay="250">
-			<img src="{{ asset('/img/thumbnail1.jpg') }}" alt="..." class="rounded-circle" width="100px" height="100px">
+			<img src="{{ asset('/img/thumbnail_puntualidad.jpg') }}" alt="..." class="rounded-circle" width="100px" height="100px">
 			<p class="py-3">Puntualidad</p>
 		</div>
 	</div>

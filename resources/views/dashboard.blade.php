@@ -9,73 +9,66 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <div class="col-12 mt-2 mb-3 d-flex justify-content-end"> <b class="text-uppercase"> {{ $ticket->TicketTypeTicket }}:&nbsp; </b> N° 00 - {{ $ticket->id }}  </div>
+                    <div class="col-12 mt-2 mb-3 d-flex justify-content-end"> 
+                        <b class="text-uppercase"> {{ $ticket->TicketTypeTicket }}:&nbsp; </b> N° 00 - {{ $ticket->id }}  
+                    </div>
                     <hr>
-                    <table class="table table-borderless">
-                        <tbody>
-                            <tr>
-                                <th width="5%"> RUC:  </th>
-                                <td width="15%"> {{ $ticket->client->NumberRuc }} </td>
-                                <th width="10%"> Razón Social:  </th>
-                                <td> {{ $ticket->client->SocialRasonRuc }} </td>
-                                <th width="5%"> Fecha:  </th>
-                                <td width="20%"> {{ $ticket->created_at }} </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="row">
+                        <div class="col-md-4 pb-1">
+                            <b>RUC:</b> {{ $ticket->client->NumberRuc }}
+                        </div>
+                        <div class="col-md-4 pb-1">
+                            <b>Razón Social:</b> {{ $ticket->client->SocialRasonRuc }}
+                        </div>
+                        <div class="col-md-4 pb-1">
+                            <b>Fecha:</b> {{ $ticket->created_at }}
+                        </div>
+                        <div class="col-md-4 pb-1">
+                            <b>Comprobante:</b> {{ $ticket->TicketTypeTicket }}
+                        </div>
+                        <div class="col-md-4 pb-1">
+                            <b>Moneda:</b> {{ $ticket->MoneyTypeTicket }}
+                        </div>
+                        <div class="col-md-4 pb-1">
+                            <b>Producto:</b> {{ $ticket->ServiceTypeTicket }}
+                        </div>
+                    </div>
+                    
 
-                    <table class="table table-borderless">
-                        <tbody>
-                            <tr>
-                                <th width="10%"> Comprobante:  </th>
-                                <td class="text-left"> {{ $ticket->TicketTypeTicket }} </td>
-                                <th width="7%"> Moneda:  </th>
-                                <td class="text-left"> {{ $ticket->MoneyTypeTicket }} </td>
-                                <th width="12%"> Forma de pago:  </th>
-                                <td class="text-left"> {{ $ticket->PayTypeTicket }} </td>
-                                <th width="8%"> Producto:  </th>
-                                <td class="text-left"> {{ $ticket->ServiceTypeTicket }} </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <table class="table my-5" style="table-layout:fixed">
+                    <table class="table my-3" style="table-layout:fixed">
                         <thead>
                             <tr>
-                                <th width="5%">#</th>
-                                <th width="10%">Cantidad</th>
-                                <th width="65%" height="100%" class="text-center">Descripción</th>
-                                <th width="20%">Precio Unitario</th>
+                                <th width="5%"><small>Cant</small></th>
+                                <th width="65%" height="100%" class="text-center"><small>Descripción</small></th>
+                                <th width="25%"><small>P. Unitario</small></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($ticket->itemTicket as $index => $itemTickets)
                             <tr>
-                                <th> {{ $index + 1 }} </th>
-                                <td> {{ $itemTickets->AmountItem }} </td>
-                                <td class="text-center align-top" height="auto" style="Word-wrap: break-Word"> {{ $itemTickets->DescriptionItem }} </td>
-                                <td> S/. {{ $itemTickets->PriceItem }}.00 </td>
+                                <td> <small>{{ $itemTickets->AmountItem }}</small> </td>
+                                <td class="text-center align-top" height="auto" style="Word-wrap: break-Word"> 
+                                    <small>{{  $itemTickets->DescriptionItem }}</small>
+                                </td>
+                                <td> <small>S/. {{ $itemTickets->PriceItem }}.00</small> </td>
                             </tr>
                             @endforeach
                         </tbody>
                         <tfoot>
                             <tr> 
                                 <td></td>
-                                <td></td>
                                 <td class="text-right"><b>SubTotal: </b></td>
-                                <td> {{ $ticket->SubTotalTicket }} </td>
+                                <td><small>{{ $ticket->SubTotalTicket }}</small></td>
                             </tr>
                             <tr>
-                                <td></td>
                                 <td></td>
                                 <td class="text-right"><b>IGV: </b></td>
-                                <td> {{ $ticket->IGVTicket }} </td>
+                                <td> <small>{{ $ticket->IGVTicket }}</small> </td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td></td>
                                 <td class="text-right"><b>Total: </b></td>
-                                <td> {{ $ticket->TotalTicket }} </td>
+                                <td> <small>{{ $ticket->TotalTicket }}</small></td>
                             </tr>
                         </tfoot>
 
@@ -85,18 +78,18 @@
                             @csrf
                             <div class="col-auto">
                                 <label for="staticEmail2" class="visually-hidden">Email</label>
-                                <input type="email" class="form-control" id="EmailSendTicket" name="EmailSendTicket" value="jpacheco@unitru.edu.pe" placeholder="@gmail.com">
+                                <input type="email" class="form-control form-control-sm" id="EmailSendTicket" name="EmailSendTicket" value="jpacheco@unitru.edu.pe" placeholder="@gmail.com">
                                 <input type="hidden" class="form-control" id="IdTicket" name="IdTicket" value="{{ $ticket->id }}">
                             </div>
                         </form>
                         <div class="col-auto">
-                                <button class="btn btn-outline-primary mx-2" onclick="sendEmail({{ $ticket->id }})">Enviar</button>
+                                <button class="btn btn-outline-primary btn-sm mx-1" onclick="sendEmail({{ $ticket->id }})">Enviar</button>
                             </div>
                         <div class="col-auto">
-                            <a class="btn btn-outline-warning mx-2" href="{{ url('/test') }}">PDF</a> 
+                            <a class="btn btn-outline-warning btn-sm mx-1" href="{{ url('/test') }}">PDF</a> 
                         </div>
                         <div class="col-auto">
-                            <a class="btn btn-outline-danger mx-2" href="{{ url('/delete/' . $ticket->id ) }}">Eliminar</a> 
+                            <a class="btn btn-outline-danger btn-sm mx-1" href="{{ url('/delete/' . $ticket->id ) }}">Eliminar</a> 
                         </div>
                     </div>                      
                 </div>

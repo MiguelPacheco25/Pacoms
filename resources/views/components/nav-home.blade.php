@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
           <div class="navbar-nav text-center">
             <a class="nav-link text-white active" aria-current="page" href="{{ route('home') }}"><b>Inicio</b></a>
-            <a class="nav-link text-white" href="#"><b>Cotiza tu servicio</b></a>
+            <a class="nav-link text-white" href=" {{ route('quote') }} "><b>Cotiza tu servicio</b></a>
             <a class="nav-link text-white" href=" {{ route('about') }} "><b>Nosotros</b></a>
             <a class="nav-link text-white" href=" {{ route('login') }} "><b>Login</b></a>
         </div>

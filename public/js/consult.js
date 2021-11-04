@@ -1,4 +1,4 @@
-
+$(document).ready(calculateTotal);
 var item = 1;
 
 function consultRuc(){
@@ -20,14 +20,9 @@ function addItem(){
 	item += 1;
 	
 	let addtr = `<tr>
-                  <th scope="row">${item}</th>
-                  <td><input type="number" class="form-control" id="AmountItem${item}" name="AmountItem${item}" autocomplete="off" required></td>
+                  <td><input type="number" class="form-control px-1" id="AmountItem${item}" name="AmountItem${item}" autocomplete="off" onkeyup="calculateTotal()" required></td>
                   <td><input type="text" class="form-control" id="DescriptionItem${item}" name="DescriptionItem${item}" autocomplete="off" required></td>
-                  <td><div class="input-group mb-3">
-                      <span class="input-group-text">S/. </span>
-                      <input type="text" class="form-control" id="PriceItem${item}" name="PriceItem${item}" required>
-                    </div>
-                    </td>
+                  <td><input type="number" class="form-control px-1" id="PriceItem${item}" name="PriceItem${item}" onkeyup="calculateTotal()" required></td>
 	             </tr>`;
 	
 	$('#tbodyItem').append(addtr);
@@ -37,9 +32,12 @@ function calculateTotal(){
 	let subTotal = 0;
 	let igv;
 	let total;
-	
+	let tempPrice = 0;
+  let tempAmount = 0;
 	for (let i = 1; i <= item; i++) {
-	   subTotal = subTotal + (parseInt($('#PriceItem'+i)[0].value) * parseInt($('#AmountItem'+i)[0].value));
+    tempPrice = $('#PriceItem'+i)[0].value != "" ? parseInt($('#PriceItem'+i)[0].value) : 0;
+    tempAmount = $('#AmountItem'+i)[0].value != "" ? parseInt($('#AmountItem'+i)[0].value) : 0;
+	   subTotal = subTotal + (parseInt(tempPrice) * parseInt(tempAmount));
 	}
 	
 	igv = subTotal*0.18;
