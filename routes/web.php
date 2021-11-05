@@ -27,21 +27,25 @@ Route::get('quote', function () {
     return view('quote');
 })->name('quote');
 
-Route::get('/dashboard', [ConsultController::class, 'index'])->middleware(['auth'])->name('dashboard');
-
-Route::get('/registro', function () {
-    return view('register');
-})->middleware(['auth'])->name('registro');
-
-Route::post('/acciones/storeConsult', [ConsultController::class, 'store']);
-Route::get('/consult', [ConsultController::class, 'create']);
-Route::get('/delete/{id}', [ConsultController::class, 'destroy'])->name('delete');
-
-Route::post('/sendEmail', [MailController::class, 'send'])->middleware(['auth'])->name('sendEmail');
-
 
 Route::get('/test', [ConsultController::class, 'downloadPdf'])->name('downloadPdf');
 
+Route::middleware(['auth'])->group(function () {
+    Route::post('/sendEmail', [MailController::class, 'send'])->name('sendEmail');
+    Route::get('/dashboard', [ConsultController::class, 'index'])->name('dashboard');
+    Route::get('/consult', [ConsultController::class, 'create']);
+    Route::get('/delete/{id}', [ConsultController::class, 'destroy'])->name('delete');
+    Route::post('/acciones/storeConsult', [ConsultController::class, 'store']);
+    Route::get('/registro', function () {
+        return view('register');
+    })->middleware(['auth'])->name('registro');
+});
 
+
+Route::fallback(function () {
+    return view('notfound');
+});
 
 require __DIR__.'/auth.php';
+
+
