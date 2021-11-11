@@ -17,10 +17,10 @@ class Client extends Migration
             $table->id();
             $table->string('NumberRuc')->unique();
             $table->string('SocialRasonRuc');
-            $table->string('NamesClient');
-            $table->string('LastnamesClient');
-            $table->string('EmailClient');
-            $table->string('created_by');
+            $table->string('NamesClient')->nullable();
+            $table->string('LastnamesClient')->nullable();
+            $table->string('EmailClient')->nullable();
+            $table->string('created_by')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

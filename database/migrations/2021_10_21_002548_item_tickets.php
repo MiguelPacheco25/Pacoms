@@ -13,13 +13,13 @@ class ItemTickets extends Migration
      */
     public function up()
     {
-        Schema::create('ItemTickets', function(Blueprint $table){
+        Schema::create('itemTickets', function(Blueprint $table){
             $table->id();
             $table->string('AmountItem');
             $table->string('DescriptionItem');
             $table->string('PriceItem');
-            $table->string('IdTicket');
-            $table->string('created_by');
+            $table->string('ticket_id');
+            $table->string('created_by')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

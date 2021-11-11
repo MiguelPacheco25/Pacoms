@@ -22,8 +22,8 @@ class Tickets extends Migration
             $table->string('SubTotalTicket');
             $table->string('IGVTicket');
             $table->string('TotalTicket');
-            $table->string('IdClient');
-            $table->string('created_by');
+            $table->string('client_id');
+            $table->string('created_by')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
