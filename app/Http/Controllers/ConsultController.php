@@ -133,11 +133,15 @@ class ConsultController extends Controller
 
     public function downloadPdf()
     {
+        
         $ticket = Ticket::first();
         $nombrePDF = 'ComprobanteN°00-'.$ticket->id.'.pdf';
         //return view('consult', compact(['ticket']));
-        $pdf = PDF::loadView('consult', compact(['ticket']))->setPaper('a4', 'landscape');
 
-        return $pdf->download($nombrePDF);
+        //$pdf = PDF::loadView('consult', compact(['ticket']))->setPaper('a4', 'landscape');
+        $pdf = PDF::loadView('consult', compact(['ticket']))->setPaper('a4');
+
+        //return $pdf->download($nombrePDF);
+        return $pdf->stream();
     }
 }
