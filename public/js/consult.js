@@ -42,7 +42,7 @@ function removeItem(event){
 function calculateTotal(){
 
 }
-
+ 
 function resetForm(formName){
   
   document.getElementById(formName).reset();
