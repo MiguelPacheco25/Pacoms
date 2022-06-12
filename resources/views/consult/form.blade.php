@@ -99,14 +99,16 @@
           <tr>
             <th scope="col" width="6%"><small>Cant</small></th>
             <th scope="col" class="text-center"><small>Descripción</small></th>
-            <th scope="col" width="24%"><small>P. Unitario</small></th>
+            <th scope="col" width="19%"><small>P. Unitario</small></th>
+            <th scope="col" width="5%"></th>
           </tr>
         </thead>
         <tbody id="tbodyItem">
-          <tr>
+          <tr id="tr1">
             <td><input type="number" class="form-control px-1" id="AmountItem1" name="AmountItem1" autocomplete="off" onkeyup="calculateTotal()" required></td>
             <td><input type="text" class="form-control" id="DescriptionItem1" name="DescriptionItem1" autocomplete="off" required></td>
             <td><input type="number" class="form-control px-1" id="PriceItem1" name="PriceItem1" onkeyup="calculateTotal()" required></td>
+            <td><button type="button" onclick="removeItem('tr1')">X</button></td>
           </tr>
         </tbody>
       </table>
@@ -159,7 +161,7 @@
 
             
             <div class="col-12 d-flex justify-content-end">
-              <a type="button" class="btn btn-outline-success mx-2" onclick="calculateTotal()">Calcular</a>
+              <a type="button" class="btn btn-outline-success mx-2" id="btnCalcultateTotal">Calcular</a>
               <button type="submit" class="btn btn-primary">Emitir Comprobante</button>
             </div>
           </form>

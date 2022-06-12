@@ -32,13 +32,17 @@ Route::get('/test', [ConsultController::class, 'downloadPdf'])->name('downloadPd
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/sendEmail', [MailController::class, 'send'])->name('sendEmail');
-    Route::get('/dashboard', [ConsultController::class, 'index'])->name('dashboard');
+    Route::get('/@', [ConsultController::class, 'index'])->name('dashboard');
     Route::get('/consult', [ConsultController::class, 'create']);
     Route::get('/delete/{id}', [ConsultController::class, 'destroy'])->name('delete');
     Route::post('/acciones/storeConsult', [ConsultController::class, 'store']);
+    Route::post('/acciones/search', [ConsultController::class, 'search'])->name('acciones.search');;
     Route::get('/registro', function () {
         return view('register');
     })->middleware(['auth'])->name('registro');
+    Route::get('/inventory', function () {
+        return view('inventario');
+    })->middleware(['auth'])->name('inventory');
 });
 
 

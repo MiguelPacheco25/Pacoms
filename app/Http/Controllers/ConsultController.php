@@ -13,34 +13,25 @@ use PDF;
 
 class ConsultController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
        $tickets = Ticket::orderBy('created_at', 'DESC')->get();
        return view('dashboard', compact(['tickets']));
+
+       /*$clients = Client::with('ticket')->where('SocialRasonRuc', 'LIKE', "%man%")->get();
+        foreach( $clients as  $client ){
+            $tickets = $client->ticket;
+        }
+        return view('dashboard', compact(['tickets']));*/
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
        $ticket = Ticket::first();
        return view('consult', compact(['ticket']));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $usuario = Auth::user()->name;
@@ -83,46 +74,21 @@ class ConsultController extends Controller
         //return view('consult');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($ruc)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         Ticket::find($id)->delete();
@@ -143,5 +109,27 @@ class ConsultController extends Controller
 
         //return $pdf->download($nombrePDF);
         return $pdf->stream();
+    }
+
+    public function search(Request $request){
+        $tickets = array();
+        $itemTicket = array();
+        $cont = 0;
+        if ($request->ajax()){
+            $clients = Client::with('ticket')->where('SocialRasonRuc', 'LIKE', "%$request->BSocialRazon%")->orderBy('created_at', 'DESC')->get();
+
+            foreach( $clients as  $index => $client ){
+                $tickets = new Ticket();
+                $tickets[$index] = $client->ticket;
+                
+                foreach($client->ticket as $ticket){
+                    $itemTicket = new ItemTicket();
+                    $itemTicket[$cont] = $ticket->itemTicket;
+                    $cont++;
+                }
+            }
+
+            return response()->json(['clients' => $clients, 'itemTickets' => $itemTicket]);
+        }
     }
 }

@@ -12,3 +12,6 @@
 2. composer install --ignore-platform-reqs
 3. npm install
 
+## Web page production
+http://34.125.93.79/
+

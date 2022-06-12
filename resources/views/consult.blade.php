@@ -55,7 +55,7 @@
         	<tr>
         		<td width="50px" class="text-right"> <small> RUC </small> </td>
                 <td> <small> : 20606758562 </small> </td>
-                <td rowspan="6" class="text-center" width="300px"><img src="https://i.ibb.co/qnFw0hg/logo.png"  alt="logo" border="0" width="280px"></td>
+                <td rowspan="6" class="text-center" width="300px"><img src="https://i.ibb.co/9srcNC8/logo.jpg"  alt="logo" border="0" width="280px"></td>
         	</tr>
         	<tr>
         		<td class="text-right"> <small> TALLER </small> </td>
